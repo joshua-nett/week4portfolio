@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Joshua Nett, software developer.">
+  <title>Joshua Nett // Software Developer</title>
+  <style>
+    :root {
+      --ink: #17213e;
+      --blue: #1d4f91;
+      --sky: #a8dcf3;
+      --mint: #d8fff0;
+      --pink: #ff77b7;
+      --yellow: #ffe771;
+      --paper: #f6fbff;
+      --line: #6d84b7;
+      --window: #edf4ff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Tahoma, Verdana, sans-serif;
+      background-color: #96d5ef;
+      background-image: linear-gradient(90deg, rgba(255,255,255,.24) 1px, transparent 1px), linear-gradient(rgba(255,255,255,.24) 1px, transparent 1px);
+      background-size: 24px 24px;
+      min-height: 100vh;
+    }
+
+    a { color: #073f93; font-weight: bold; }
+    a:hover { color: #c2146c; }
+    button { font: inherit; cursor: pointer; }
+    .page { width: min(1080px, calc(100% - 24px)); margin: 18px auto 88px; }
+
+    .browser-chrome {
+      background: linear-gradient(#f9fcff, #cad8ec);
+      border: 2px solid #f7fbff;
+      box-shadow: 0 0 0 2px #58739f, 5px 6px 0 rgba(21, 54, 104, .28);
+    }
+    .browser-title {
+      display: flex; align-items: center; gap: 8px; min-height: 35px; padding: 5px 9px;
+      color: white; font-weight: bold; font-size: 13px;
+      background: linear-gradient(90deg, #155bb4, #60a1e3 62%, #2972c8);
+    }
+    .browser-title::before { content: "✦"; color: var(--yellow); font-size: 18px; }
+    .window-actions { margin-left: auto; display: flex; gap: 3px; }
+    .window-actions span { display: grid; place-items: center; width: 20px; height: 19px; background: linear-gradient(#fff, #b4c7df); border: 1px solid #315d96; color: #193d6e; font-weight: bold; }
+    .address { display: flex; gap: 8px; padding: 7px 9px; border-bottom: 1px solid #8ca2c3; font-size: 12px; }
+    .address label { padding-top: 4px; }
+    .address-bar { flex: 1; padding: 4px 7px; background: white; border: 1px solid #8095b7; color: #365f83; }
+
+    header { background: var(--paper); padding: 24px clamp(15px, 4vw, 46px) 20px; }
+    .masthead { display: flex; align-items: end; justify-content: space-between; gap: 18px; border-bottom: 3px double var(--blue); padding-bottom: 16px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 4px; font-family: "Courier New", monospace; font-size: clamp(28px, 6vw, 56px); letter-spacing: 0; color: #152d62; text-shadow: 2px 2px 0 #9adcf4; }
+    .tagline { margin: 0; font-size: 14px; color: #475b79; }
+    .status { white-space: nowrap; padding: 7px 9px; background: var(--mint); border: 1px solid #53a58b; font-size: 12px; box-shadow: 2px 2px 0 #7fb9aa; }
+    .status i { display: inline-block; width: 8px; height: 8px; margin-right: 5px; border-radius: 50%; background: #09ae66; }
+
+    nav { display: flex; flex-wrap: wrap; gap: 0; margin-top: 17px; }
+    nav a { padding: 8px 14px; border: 1px solid #5479ad; margin: 0 -1px -1px 0; text-decoration: none; background: linear-gradient(#fff, #cedcf1); color: #1b4a88; font-size: 13px; }
+    nav a:hover { background: var(--yellow); }
+
+    main { display: grid; grid-template-columns: 195px 1fr; background: #f9fdff; }
+    aside { padding: 15px 12px; border-right: 1px solid #9db0ca; background: linear-gradient(180deg, #d9f9f5, #eaf5ff 68%, #c6d9f5); }
+    .side-box { margin-bottom: 14px; padding: 9px; border: 1px solid #6f8fc0; background: rgba(255,255,255,.74); box-shadow: inset 1px 1px white; }
+    .side-box h2 { margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px dotted #5d84ad; font-size: 12px; text-transform: uppercase; color: #174981; }
+    .side-box p, .side-box li { font-size: 12px; line-height: 1.45; }
+    .side-box ul { padding-left: 17px; margin: 0; }
+    .visitor { display: flex; justify-content: center; gap: 2px; margin-top: 7px; font: bold 16px "Courier New", monospace; color: white; }
+    .visitor b { min-width: 18px; text-align: center; padding: 3px 1px; background: #182653; border: 1px inset #6d85bd; }
+
+    .content { min-width: 0; padding: clamp(16px, 3vw, 30px); }
+    .welcome { display: grid; grid-template-columns: 1fr 175px; gap: 20px; align-items: center; padding-bottom: 22px; border-bottom: 1px dashed #7591b9; }
+    .eyebrow { margin-bottom: 7px; color: #c11570; font: bold 12px "Courier New", monospace; }
+    .welcome h2 { margin-bottom: 10px; font-size: clamp(21px, 4vw, 31px); color: #173f7c; }
+    .welcome p { margin-bottom: 0; max-width: 600px; line-height: 1.55; font-size: 14px; }
+    .avatar { aspect-ratio: 1; display: grid; place-items: center; position: relative; overflow: hidden; border: 4px ridge #bed6f0; background: linear-gradient(140deg, #fb87bf 0 38%, #7de0e8 38% 65%, #ffe777 65%); box-shadow: 4px 4px 0 #355f9d; }
+    .avatar::after { content: "JOSHUA.EXE"; position: absolute; bottom: 7px; padding: 3px 5px; color: white; background: #172452; font: bold 11px "Courier New", monospace; }
+    .avatar span { font-size: 64px; filter: drop-shadow(2px 2px 0 white); }
+
+    .section-title { display: flex; align-items: center; gap: 8px; margin: 25px 0 12px; font-size: 17px; color: #123f7f; }
+    .section-title::before { content: ""; width: 10px; height: 10px; background: var(--pink); border: 1px solid #a32762; box-shadow: 2px 2px 0 #bdd5ef; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .project { border: 1px solid #7892ba; background: white; box-shadow: 3px 3px 0 #c6d9ef; }
+    .project-top { padding: 9px 10px; background: linear-gradient(90deg, #1d5ba8, #5694db); color: white; font: bold 12px "Courier New", monospace; }
+    .project-body { padding: 12px; }
+    .project h3 { margin-bottom: 6px; font-size: 15px; }
+    .project p { min-height: 42px; margin-bottom: 11px; font-size: 12px; line-height: 1.45; }
+    .pills { display: flex; flex-wrap: wrap; gap: 5px; }
+    .pill { padding: 3px 6px; border: 1px solid #9eb1cb; background: #e7f0fa; color: #365476; font: 11px "Courier New", monospace; }
+
+    .contact { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 15px; margin-top: 27px; padding: 16px; border: 2px ridge #aac4df; background: linear-gradient(125deg, #e4f8ff, #f3eaff); }
+    .contact h2 { margin-bottom: 5px; font-size: 18px; }
+    .contact p { margin: 0; font-size: 13px; }
+    .email-button { padding: 9px 12px; border: 2px outset #d5e6fa; background: linear-gradient(#fff, #a8c4ec); color: #173c73; text-decoration: none; font-size: 12px; text-align: center; }
+    .email-button:active { border-style: inset; }
+
+    footer { display: flex; justify-content: space-between; gap: 12px; padding: 8px 12px; color: white; background: #244f90; font-size: 11px; }
+    .taskbar { position: fixed; bottom: 0; left: 0; right: 0; display: flex; align-items: center; gap: 7px; padding: 4px 7px; border-top: 1px solid white; background: linear-gradient(#5797dc, #22569e); color: white; font-size: 12px; }
+    .start { padding: 4px 10px; border: 1px outset #bce5ff; background: #347b43; color: white; font-weight: bold; font-style: italic; }
+    .task { padding: 4px 11px; border: 1px inset #4777b2; background: #2d67a9; }
+    .clock { margin-left: auto; padding: 4px 9px; border-left: 1px solid #81bbe8; }
+
+    @media (max-width: 680px) {
+      .page { width: min(100% - 12px, 1080px); margin-top: 7px; }
+      .masthead { align-items: start; flex-direction: column; }
+      .status { white-space: normal; }
+      main { grid-template-columns: 1fr; }
+      aside { border-right: 0; border-bottom: 1px solid #9db0ca; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .side-box { margin: 0; }
+      .welcome { grid-template-columns: 1fr 115px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .contact { grid-template-columns: 1fr; }
+      .email-button { justify-self: start; }
+    }
+    @media (max-width: 430px) {
+      header { padding: 17px 14px; }
+      aside { grid-template-columns: 1fr; }
+      .welcome { grid-template-columns: 1fr; }
+      .avatar { width: 130px; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page browser-chrome">
+    <div class="browser-title">Joshua Nett Portfolio - Microsoft Internet Explorer <div class="window-actions"><span>_</span><span>□</span><span>×</span></div></div>
+    <div class="address"><label>Address</label><div class="address-bar">https://joshuanett.dev/home</div></div>
+    <header>
+      <div class="masthead">
+        <div><h1>Joshua Nett</h1><p class="tagline">software developer / web tinkerer / professional button presser</p></div>
+        <div class="status"><i></i>available for good work</div>
+      </div>
+      <nav aria-label="Primary navigation"><a href="#about">about.exe</a><a href="#work">projects</a><a href="#uses">toolbox</a><a href="#contact">contact</a></nav>
+    </header>
+    <main>
+      <aside>
+        <section class="side-box"><h2>Now playing</h2><p><strong>Midnight City</strong><br>M83<br><br><a href="#" onclick="return false">♪ listen later</a></p></section>
+        <section class="side-box" id="uses"><h2>My toolbox</h2><ul><li>TypeScript</li><li>React &amp; Next.js</li><li>Node.js</li><li>PostgreSQL</li><li>Figma</li></ul></section>
+        <section class="side-box"><h2>Site visitors</h2><div class="visitor" aria-label="Visitor counter 004208"><b>0</b><b>0</b><b>4</b><b>2</b><b>0</b><b>8</b></div></section>
+      </aside>
+      <div class="content">
+        <section class="welcome" id="about">
+          <div><p class="eyebrow">// hello, internet.</p><h2>I make thoughtful software for people who have things to do.</h2><p>I'm Joshua, a product-minded developer based somewhere with excellent coffee. I turn fuzzy ideas into crisp interfaces, sturdy services, and the occasional gloriously over-engineered side project.</p></div>
+          <div class="avatar" aria-label="Joshua placeholder portrait"><span>:-)</span></div>
+        </section>
+        <section id="work"><h2 class="section-title">Selected transmissions</h2>
+          <div class="project-grid">
+            <article class="project"><div class="project-top">C:\WORK\CIVIC-QUEUE</div><div class="project-body"><h3>Queue, but friendlier</h3><p>A scheduling system that helped a small public-service team turn wait times into useful, human updates.</p><div class="pills"><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Maps</span></div></div></article>
+            <article class="project"><div class="project-top">C:\WORK\FIELD-NOTES</div><div class="project-body"><h3>Field Notes Archive</h3><p>A fast, searchable home for thousands of environmental research observations and photographs.</p><div class="pills"><span class="pill">Next.js</span><span class="pill">Postgres</span><span class="pill">GIS</span></div></div></article>
+            <article class="project"><div class="project-top">C:\LABS\TINY-WEATHER</div><div class="project-body"><h3>Tiny Weather</h3><p>A cheerful desktop weather app built to make checking the forecast feel less like a status meeting.</p><div class="pills"><span class="pill">Electron</span><span class="pill">API</span><span class="pill">CSS</span></div></div></article>
+            <article class="project"><div class="project-top">C:\LABS\LISTENING-ROOM</div><div class="project-body"><h3>Listening Room</h3><p>A collaborative playlist experiment for people who still care about album art and liner notes.</p><div class="pills"><span class="pill">Node.js</span><span class="pill">WebSockets</span><span class="pill">Music</span></div></div></article>
+          </div>
+        </section>
+        <section class="contact" id="contact"><div><h2>Send a transmission</h2><p>Have a project, a position, or a question about the old web? My inbox is open.</p></div><a class="email-button" href="mailto:hello@example.com">✉ EMAIL JOSHUA</a></section>
+      </div>
+    </main>
+    <footer><span>© 2026 Joshua Nett. Hand-coded with care.</span><span>Best viewed with curiosity.</span></footer>
+  </div>
+  <div class="taskbar"><button class="start" type="button">Start</button><div class="task">▣ Joshua Nett Portfolio</div><time class="clock" id="clock"></time></div>
+  <script>
+    const clock = document.querySelector('#clock');
+    const updateClock = () => { clock.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); };
+    updateClock();
+    setInterval(updateClock, 30000);
+  </script>
+</body>
+</html>
