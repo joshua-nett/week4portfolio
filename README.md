@@ -9,10 +9,10 @@ The design blends Microsoft 9X and Windows 7 interface elements with old MySpace
 No dependencies or build step are required. Open [index.html](index.html) in a browser, or serve the directory locally:
 
 ```bash
-python3 -m http.server 8000
+python3 -m http.server 1998
 ```
 
-Then visit `http://localhost:8000`.
+Then visit `http://localhost:1998`.
 
 ## Customize
 
